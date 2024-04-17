@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- INPUT_REQUIRED {Add the correct version of Font Awesome or another preferred icon library} -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chatWidget.js" defer></script>
+</head>
+<body>
+    <div id="chat-widget">
+        <!-- Notification area for displaying messages to the user -->
+        <div id="notification-area" style="display: none; padding: 10px; background-color: #f9f9f9; color: #333; text-align: center;"></div>
+        <!-- Chat widget will be dynamically populated here -->
+        <div id="chat-widget-content">
+            <!-- Messages will be displayed here -->
+        </div>
+        <div id="chat-widget-input">
+            <div id="message-input-container" style="position: relative; display: flex; align-items: center;">
+                <label for="file-input" style="position: absolute; left: 4px; cursor: pointer;" aria-label="Attach file">📎</label>
+                <input type="file" id="file-input" accept="image/*,audio/*,video/*" style="display: none;" aria-label="File upload">
+                <input type="text" id="message-input" placeholder="Type a message" style="flex-grow: 1; padding-left: 22px;">
+                <button id="send-btn" style="margin-left: 6px;">Send</button>
+            </div>
+            <div id="username-container" style="margin-top: 5px; display: flex; justify-content: space-between;">
+                <input type="text" id="username-input" placeholder="Set your username" style="flex-grow: 1; margin-right: 10px;">
+                <button id="set-username-btn">Apply</button>
+            </div>
+            <!-- Theme buttons for changing chat widget appearance -->
+            <div id="theme-buttons-container" style="margin-top: 10px; display: flex; justify-content: space-between;">
+                <button class="theme-button" id="theme-default">Default</button>
+                <button class="theme-button" id="theme-soylana">Soylana</button>
+                <button class="theme-button" id="theme-light" style="margin-right: 0;">Light</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        console.log('Chat widget page loaded.');
+    </script>
+</body>
+</html>

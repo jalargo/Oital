@@ -1,0 +1,222 @@
+/* Chat App Widget Styles */
+
+:root {
+    --default-gradient-start: #9945FF;
+    --default-gradient-end: #14F195;
+    --hover-gradient-start: #ec407a;
+    --hover-gradient-end: #ffca28;
+    --dark-gradient-start: #5a67d8;
+    --dark-gradient-end: #d53f8c;
+    --dark-hover-gradient-start: #ffffff;
+    --dark-hover-gradient-end: #9f7aea;
+    --text-color-default: #000000; /* Text color changed to black for all themes */
+    --text-color-dark: #000000; /* Ensuring dark theme text is also black */
+    --default-content-gradient-start: #9945FF; /* New */
+    --default-content-gradient-end: #14F195; /* New */
+    --dark-content-gradient-start: #5a67d8; /* New */
+    --dark-content-gradient-end: #d53f8c; /* New */
+    --default-button-gradient-start: #ec407a; /* Updated to pink 500 */
+    --default-button-gradient-end: #ffca28; /* Updated to yellow 500 */
+    --dark-button-gradient-start: #ffffff; /* New */
+    --dark-button-gradient-end: #ba68c8; /* Updated to purple 300 */
+    --button-text-color-default: #000000; /* Button text color for default theme */
+    --button-text-color-light: #000000; /* Button text color for light theme */
+    --input-focus-default: #ec407a; /* New variable for default theme input focus */
+    --input-focus-dark: #ffffff; /* New variable for dark theme input focus */
+    --input-box-shadow-default: 0 0 0 3px rgba(156, 39, 176, 0.5); /* New variable for default theme input box shadow */
+    --input-box-shadow-dark: 0 0 0 3px rgba(255, 255, 255, 0.5); /* New variable for dark theme input box shadow */
+    --button-box-shadow-default: 0 0 0 3px rgba(156, 39, 176, 0.5); /* New variable for default theme button focus box shadow */
+    --button-box-shadow-dark: 0 0 0 3px rgba(255, 255, 255, 0.5); /* New variable for dark theme button focus box shadow */
+    --max-file-display-size: 200px; /* New variable for max file display size */
+    --remove-button-color: var(--text-color-default); /* Color for the remove button updated to use text color variable */
+}
+
+/* Container for the chat widget */
+#chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 800px; /* Height doubled as per user feedback */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-image: linear-gradient(to right, var(--default-gradient-start), var(--default-gradient-end));
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: height 0.5s ease;
+    font-family: sans-serif;
+    color: var(--text-color-default);
+}
+
+/* Header of the chat widget */
+#chat-widget-header {
+    padding: 10px;
+    background-color: #f9f9f9; /* Changed to match the chat widget background color, removing the blue border */
+    color: var(--text-color-default); /* Changed text color for better visibility against the new background */
+    text-align: center;
+    cursor: pointer;
+    position: relative; /* Ensure the toggle button can be positioned absolutely within this container */
+}
+
+/* Main content area where messages will be displayed */
+#chat-widget-content {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-image: linear-gradient(to right, var(--default-content-gradient-start), var(--default-content-gradient-end)); /* Updated */
+    color: var(--text-color-default);
+}
+
+/* Input area for typing messages */
+#chat-widget-input {
+    padding: 10px;
+    background-image: linear-gradient(to right, var(--default-content-gradient-start), var(--default-content-gradient-end)); /* Updated */
+    display: flex;
+    flex-direction: column; /* Changed to column for stacking input area and button row */
+    align-items: stretch; /* Stretch align the input and buttons for full width */
+    color: var(--text-color-default);
+    position: relative; /* Updated for theme switch positioning */
+}
+
+/* New container for message input and send button */
+#message-input-container {
+    display: flex;
+    flex-direction: row; /* Align input and send button horizontally */
+    justify-content: space-between; /* Distribute space between input and button */
+    margin-bottom: 0px; /* Adjusted space to equalize distance */
+    position: relative; /* Position relative to allow absolute positioning of elements inside */
+}
+
+/* Input field for typing messages */
+#message-input-container input {
+    padding: 8px 8px 8px 20px; /* Adjust padding to move the text closer to the paperclip icon */
+    border: none; /* Border removed as per user feedback */
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    flex-grow: 1; /* Allow input to fill available space */
+    margin-right: 4px; /* Ensure spacing between input and send button */
+    outline: none;
+    box-shadow: var(--input-box-shadow-default); /* Updated to use box-shadow for focus effect */
+    width: calc(100% - 95px); /* Adjust width to line up with the set a username box */
+}
+
+/* Button to send messages */
+#message-input-container button,
+#username-container button {
+    background-image: linear-gradient(to right, var(--default-button-gradient-start), var(--default-button-gradient-end)); /* Updated */
+    padding: 8px 17px;
+    border: none; /* Border removed as per user feedback */
+    border-radius: 4px; /* Adjusted for rectangular design */
+    cursor: pointer;
+    outline: none;
+    box-shadow: var(--button-box-shadow-default); /* New style for button focus using box-shadow */
+    color: var(--button-text-color-default); /* Ensure button text color is set correctly for default theme */
+}
+
+#message-input-container button:hover,
+#username-container button:hover {
+    background-color: #2196F3; /* Changed to a solid color for hover state */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Added glow effect on hover */
+}
+
+/* Styles for messages */
+.message {
+    margin-bottom: 2px; /* Reduced bottom margin to decrease gap between messages */
+    padding: 8px;
+    border-radius: 4px;
+    background-color: transparent;
+    word-wrap: break-word;
+    color: var(--text-color-default);
+}
+
+.message.self {
+    background-color: transparent;
+    color: var(--text-color-default); /* Self message text color changed to black */
+}
+
+/* Styles for usernames */
+.username {
+    font-weight: bold;
+    color: var(--text-color-default);
+}
+
+/* Styles for timestamps */
+.timestamp {
+    font-size: 0.8em;
+    color: #666;
+}
+
+ /* Styles for setting username to match other input styles */
+ #username-container {
+     display: flex;
+     flex-direction: row; /* Align input and set username button horizontally */
+     justify-content: space-between; /* Distribute space between input and button */
+     margin-bottom: 0px; /* Adjusted space to equalize distance */
+     background-color: transparent; /* Changed from #fff to transparent to remove the white box */
+ }
+
+ #username-container input {
+     padding: 8px;
+     border: none; /* Border removed as per user feedback */
+     border-radius: 4px; /* Ensure consistency in design */
+     flex-grow: 1; /* Allow input to fill available space */
+     margin-right: 10px; /* Added margin to separate from the set username button */
+     outline: none;
+     box-shadow: var(--input-box-shadow-default); /* Updated to use box-shadow for focus effect */
+ }
+
+ #username-container button {
+     background-image: linear-gradient(to right, var(--default-button-gradient-start), var(--default-button-gradient-end)); /* Updated */
+     padding: 8px 15px;
+     border: none; /* Border removed as per user feedback */
+     border-radius: 4px; /* Adjusted for rectangular design */
+     cursor: pointer;
+     outline: none;
+     box-shadow: var(--button-box-shadow-default); /* New style for button focus using box-shadow */
+ }
+
+.theme-button {
+    background-image: linear-gradient(to right, var(--default-button-gradient-start), var(--default-button-gradient-end));
+    color: var(--text-color-default);
+    padding: 4px 8px; /* Adjusted padding to decrease the height of the theme buttons and ensure they fit in the same row with 10px spacing */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: var(--button-box-shadow-default);
+    margin: 0 2px; /* Adjusted to ensure 10px spacing between buttons */
+    min-width: 84px; /* Adjusted minimum width to ensure buttons fit in the same row with the specified spacing */
+    margin-bottom: 2px;
+
+}
+
+.theme-buttons-container {
+    display: flex;
+    justify-content: center; /* Center the theme buttons within the container */
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* New class for enforcing max file display size */
+.file-display {
+    max-width: var(--max-file-display-size);
+    max-height: var(--max-file-display-size);
+}
+
+/* Styles for the remove button next to file names */
+.remove-button {
+    background-color: transparent;
+    color: var(--text-color-default); /* Updated to ensure the remove button color matches the text color for the corresponding theme */
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    padding: 0 5px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
