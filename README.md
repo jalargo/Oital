@@ -1,3 +1,7 @@
+![image](https://github.com/jalargo/oital/assets/163580293/0eb68bd9-3c89-40b1-a400-6795bf393008) ![image](https://github.com/jalargo/oital/assets/163580293/35a0b434-3697-417a-8329-2e452ef7b659)
+
+
+
 # Chat Application
 
 This project is a web-based chat system designed to allow users to send text messages and upload files anonymously. It focuses on real-time communication, file sharing, and maintaining user anonymity. The application is built using Node.js and Express for the backend, with MongoDB for data storage, and employs Socket.io for real-time messaging.
