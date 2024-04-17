@@ -1,6 +1,4 @@
-![image](https://github.com/jalargo/oital/assets/163580293/0eb68bd9-3c89-40b1-a400-6795bf393008) ![image](https://github.com/jalargo/oital/assets/163580293/35a0b434-3697-417a-8329-2e452ef7b659)
-
-
+![image](https://github.com/jalargo/oital/assets/163580293/ebe4c504-f552-4e4a-8cf8-fa198c8fe77d)
 
 # Chat Application
 
